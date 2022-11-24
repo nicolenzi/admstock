@@ -38,12 +38,29 @@ textoContraseña = Label(ventanaI,
 textoContraseña.place(relx=0.5,rely=0.5)
 
 
+
 #Entrys
 entryUsr = Entry(ventanaI)
 entryUsr.place(relx=0.65,rely=0.39)
 
+
 entryContr = Entry(ventanaI)
 entryContr.place(relx=0.65,rely=0.48)
+
+def validacion():
+
+    if entryUsr.get() == "adm":
+        print("si")
+    else:
+        print("no")
+
+
+#Buttos
+botonEntar = Button(ventanaI,
+                text=">",
+                command=validacion)
+botonEntar.place(relx=0.73,rely=0.62)
+
 
 
 ventanaI.mainloop()
