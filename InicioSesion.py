@@ -2,10 +2,7 @@ import tkinter as tk
 from tkinter import * 
 from tkinter import messagebox
 
-#colores
-#Celeste1: #5DADE2 
-#Celeste2: #85C1E9
-#Celeste3: #AED6F1
+
 
 ventanaI = tk.Tk()
 ventanaI.title("Inicio de sesion")
