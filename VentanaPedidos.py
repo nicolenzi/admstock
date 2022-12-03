@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
-import sqlite3
+import sqlite3 as sql
 from datetime import date
 from datetime import datetime
 
@@ -12,6 +12,25 @@ ventanaPed = tk.Tk()
 ventanaPed.title("Pedidos")
 ventanaPed.geometry("800x600")
 ventanaPed.configure(bg="#AED6F1")
+
+#SQL
+sqlconex = sql.connect("admsBD.db")
+curs = sqlconex.cursor()
+
+#curs.execute('''CREATE TABLE "Mercaderia" (
+#	"Medialunas"	INTEGER,
+#	"Tortas Pinchadas"	INTEGER
+#)''')
+
+
+#curs.execute('''INSERT INTO Mercaderia ("Tortas raspadas")VALUES (0)''')
+#curs.execute('''INSERT INTO Mercaderia ("Medialunas")VALUES (0)''')
+
+curs.execute('''SELECT * FROM Mercaderia''')
+produc = curs.fetchall()
+print(produc)
+#sqlconex.commit()
+sqlconex.close()
 
 #frames
 
@@ -70,12 +89,58 @@ entryCant = Entry(frameCentro,
             width="8")
 entryCant.place(relx=0.6,rely=0.4)
 
+#Metodos
+def calculadora():
+    print("calculadora!")
+    calc = Toplevel()
+    calc.title("calculadora")
+    calc.geometry("400x400")
+
+    carro=1960
+    lata=49
+    unidad=0
+
+    #Labels
+    txtCarros = Label(calc,text="Carros:")
+    txtCarros.grid(row=0,column=0)
+
+    txtLatas = Label(calc,text="Latas:")
+    txtLatas.grid(row=1,column=0)
+
+    txtUnid = Label(calc,text="Unidades:")
+    txtUnid.grid(row=2,column=0)
+
+    #Entrys
+    entryCarro = Entry(calc)
+    entryCarro.grid(row=0,column=1)
+
+    entryLata = Entry(calc)
+    entryLata.grid(row=1,column=1)
+
+    entryUnid = Entry(calc)
+    entryUnid.grid(row=2,column=1)
+
+    def resultado(): #C = carro, L = lata, U = unidad
+        C = int(entryCarro.get())
+        L = int(entryLata.get())
+        U = int(entryUnid.get())
+        resulF = (C * carro + L * lata + U)
+        messagebox.showinfo(message=resulF,title="Resultado final")  
+
+    #Botones
+    btnconfirm = Button(calc,text="Comfirmar",command=resultado)
+    btnconfirm.grid(row=3,column=1)
+
+    calc.mainloop()
+
+
 #Botones 
 btnAñadir = Button(frameCentro, text="+")
 btnAñadir.place(relx=0.89,rely=0.4)
 
 btnCalc = Button(frameCentro,
-          text="Calculadora")
+          text="Calculadora",
+          command=calculadora)
 btnCalc.place(relx=0.71,rely=0.4)
 
 
