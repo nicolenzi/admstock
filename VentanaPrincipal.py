@@ -36,13 +36,13 @@ txtFrozen = Label(frameOpc,
             font=("arial",12))
 txtFrozen.place(relx=0,rely=0)
 
-txtAñadirP = Label(frameCentro,
-             text="Añadir pedido",
+txtAñadirS = Label(frameCentro,
+             text="Añadir stock",
              bg="white")
-txtAñadirP.place(relx=0.22,rely=0.25)
+txtAñadirS.place(relx=0.22,rely=0.25)
 
 txtListado = Label(frameCentro,
-             text="Listado de pedidos",
+             text="Listado de stock",
              bg="white")
 txtListado.place(relx=0.5,rely=0.25)
 

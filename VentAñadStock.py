@@ -74,9 +74,6 @@ txtCant = Label(frameCentro,
           text="Cantidad:")
 txtCant.place(relx=0.5,rely=0.4)
 
-txtPedRec = Label(frameCentro,
-            text="Pedidos realizados recientemente:")
-txtPedRec.place(relx=0.1,rely=0.6)
 
 #Combobox
 ListaProd = ttk.Combobox(frameCentro,
