@@ -26,11 +26,10 @@ curs = sqlconex.cursor()
 #curs.execute('''INSERT INTO Mercaderia ("Tortas raspadas")VALUES (0)''')
 #curs.execute('''INSERT INTO Mercaderia ("Medialunas")VALUES (0)''')
 
-curs.execute('''SELECT * FROM Mercaderia''')
+curs.execute('''SELECT * FROM stock''')
 produc = curs.fetchall()
 print(produc)
-#sqlconex.commit()
-sqlconex.close()
+
 
 #frames
 
@@ -122,23 +121,31 @@ def calculadora():
         L = int(entryLata.get())
         U = int(entryUnid.get())
         resulF = (C * carro + L * lata + U)
-        messagebox.showinfo(message=resulF,title="Resultado final")  
+        messagebox.showinfo(message=resulF,title="Resultado final")
+         
 
+    
     #Botones
     btnconfirm = Button(calc,text="Comfirmar",command=resultado)
     btnconfirm.grid(row=3,column=1)
 
     calc.mainloop()
 
+def Añadir():
+    entCant = entryCant.get()
+
+    curs.execute('''INSERT INTO Stock ("cantidad")VALUES ('{}')''')
+    sqlconex.commit()
+    sqlconex.close()
 
 #Botones 
-btnAñadir = Button(frameCentro, text="+")
-btnAñadir.place(relx=0.89,rely=0.4)
-
 btnCalc = Button(frameCentro,
           text="Calculadora",
           command=calculadora)
 btnCalc.place(relx=0.71,rely=0.4)
+
+btnAñadir = Button(frameCentro, text="+", command=Añadir)
+btnAñadir.place(relx=0.89,rely=0.4)
 
 
 

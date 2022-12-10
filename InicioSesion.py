@@ -3,7 +3,6 @@ from tkinter import *
 from tkinter import messagebox
 
 
-
 ventanaI = tk.Tk()
 ventanaI.title("Inicio de sesion")
 ventanaI.geometry("600x400")

@@ -12,3 +12,46 @@ sticky
 
 maxzise/minsize
 #arreglar colores https://htmlcolorcodes.com/es/tabla-de-colores/
+
+"""
+importar libreria python desde terminal;
+(arch)<>
+sudo pacman -S tk
+
+(fedora)
+sudo dnf install python3-tkinter (en terminal de copilador)
+
+verificar usuario root
+
+intalar de git 
+$ # git clone [the package]
+$ git clone https://aur.archlinux.org/qperf.git
+step2: 
+$ # cd [the package]
+$ cd qperf
+$ makepkg -si
+
+
+tareas:
+_crear login de usuario
+
+importar otro script:
+en un script:
+import cmd
+import subprocess
+cmd = "python notas.py" << nombre del script
+p = subprocess.Popen(cmd, shell=True)
+out, err = p.communicate()
+print(err)
+print(out)
+
+
+importar fecha y hora
+
+from datetime import date
+from datetime import datetime
+
+now = datetime.now()
+
+print(now)
+"""
