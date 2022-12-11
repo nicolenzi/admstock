@@ -46,6 +46,9 @@ frameCentro = Frame(ventanaPed,
            bg="orange")
 frameCentro.pack(side=LEFT)
 
+frameListP = Frame(frameCentro, width="800", height="200", bg="blue")
+frameListP.place(relx=0.08, rely=0.6)
+
 #Labels
 txtFecha = Label(frameCentro,
            text="fecha: ",
@@ -72,6 +75,22 @@ txtProd.place(relx=0.1,rely=0.4)
 txtCant = Label(frameCentro,
           text="Cantidad:")
 txtCant.place(relx=0.5,rely=0.4)
+
+#Labels de frameList
+txtNroFL = Label(frameListP, text="Nro", font=("Calabri", 12))
+txtNroFL.grid(row=0,column=0, ipadx=10)
+
+txtProducFL = Label(frameListP,text="Tipo mercaderia", font=("Calabri", 12))
+txtProducFL.grid(row=0,column=1, ipadx=10)
+
+txtCantFL = Label(frameListP,text="Cantidad total", font=("Calabri", 12))
+txtCantFL.grid(row=0,column=2, ipadx=10)
+
+txtFechaFL = Label(frameListP, text="Fecha actual", font=("Calabri", 12))
+txtFechaFL.grid(row=0,column=3, ipadx=10)
+
+txtUsrFL = Label(frameListP, text="Usuario", font=("Calabri", 12))
+txtUsrFL.grid(row=0,column=4, ipadx=10)
 
 
 #Combobox
