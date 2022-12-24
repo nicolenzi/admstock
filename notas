@@ -8,9 +8,11 @@
 #Celeste2: #85C1E9
 #Celeste3: #AED6F1
 
-sticky
+#sticky
 
-maxzise/minsize
+#para grid: "columnspan" expandir casillas
+
+#maxzise/minsize
 #arreglar colores https://htmlcolorcodes.com/es/tabla-de-colores/
 
 """
