@@ -71,6 +71,7 @@ entryCant.place(relx=0.54, rely=0.2)
 comboMercad = ttk.Combobox(ventAñadir,state="readonly",width="10",values=["Medialunas","pinchadas","raspadas"])
 comboMercad.place(relx=0.31,rely=0.2)
 
+
 comboFecha = ttk.Combobox(ventAñadir,state="readonly",width="10",values=
 ["Actual(hoy)","Otra"])
 comboFecha.place(relx=0.72,rely=0.2)
