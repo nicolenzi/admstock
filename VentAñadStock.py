@@ -49,7 +49,7 @@ frameCent = Frame(ventAñadir, bg="white", width="740",height="580")
 frameCent.place(relx=0.099,rely=0)
 
 #Labels
-txtAñadStk = Label(ventAñadir, text="Añadir stock",bg="white", font=("source",14))
+txtAñadStk = Label(ventAñadir, text="Añadir stock",bg="#F3F3F3", font=("source",14))
 txtAñadStk.place(relx=0.2,rely=0.1)
 
 txtMercad = Label(ventAñadir, text="Mercaderia",bg="white", font=("courier",11))
@@ -57,6 +57,9 @@ txtMercad.place(relx=0.2,rely=0.2)
 
 txtCant = Label(ventAñadir, text="Cantidad", bg="white", font=("courier",11))
 txtCant.place(relx=0.45,rely=0.2)
+
+txtFecha = Label(ventAñadir, text="Fecha", bg="white", font=("courier",11))
+txtFecha.place(relx=0.66,rely=0.2)
 
 #Botones
 
@@ -67,6 +70,11 @@ entryCant.place(relx=0.54, rely=0.2)
 #Comboboxs
 comboMercad = ttk.Combobox(ventAñadir,state="readonly",width="10",values=["Medialunas","pinchadas","raspadas"])
 comboMercad.place(relx=0.31,rely=0.2)
+
+comboFecha = ttk.Combobox(ventAñadir,state="readonly",width="10",values=
+["Actual(hoy)","Otra"])
+comboFecha.place(relx=0.72,rely=0.2)
+
 #_
 
 
@@ -77,7 +85,8 @@ frameInf = Frame(ventAñadir,bg="black",width="800",height="20")
 frameInf.place(relx=0,rely=0.966)
 
 #Labels
-
+txtUsr = Label(frameInf,text="Usuario:",fg="white",bg="black", font=("source",10))
+txtUsr.place(relx=0.75,rely=0)
 
 
 #_
