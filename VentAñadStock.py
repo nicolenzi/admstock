@@ -48,8 +48,8 @@ btnVolver.grid(row=1,column=0,pady=250)
 frameCent = Frame(ventAñadir, bg="white", width="740",height="580")
 frameCent.place(relx=0.099,rely=0)
 
-frameBg = Frame(frameCent, bg="#F3F3F3",width="100",height="100")
-frameBg.place(relx=0.12,rely=0.2)
+frameBg = Frame(frameCent, bg="#F3F3F3",width="600",height="150")
+frameBg.place(relx=0.05,rely=0.2)
 
 #Labels
 txtAñadStk = Label(ventAñadir, text="Añadir stock",bg="#F3F3F3", font=("source",14))
