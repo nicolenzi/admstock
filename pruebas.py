@@ -1,12 +1,21 @@
 
+import tkinter as tk
+from tkinter import *
 
+ventana = tk.Tk()
+ventana.geometry("600x600")
+activar = NORMAL
 
+def act():
+    activar=ACTIVE
 
+btn1 = Button(ventana, text="b1",command=act)
+btn1.place(relx=0.2,rely=0.2)
 
+btn2 = Button(ventana, text="b2",state=DISABLED)
+btn2.place(relx=0.3, rely=0.2)
 
-
-
-
+ventana.mainloop()
 
 
 

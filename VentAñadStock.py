@@ -48,32 +48,42 @@ btnVolver.grid(row=1,column=0,pady=250)
 frameCent = Frame(ventAñadir, bg="white", width="740",height="580")
 frameCent.place(relx=0.099,rely=0)
 
-frameBg = Frame(frameCent, bg="#F3F3F3",width="600",height="150")
-frameBg.place(relx=0.05,rely=0.2)
+frameBg1 = Frame(frameCent, bg="#EBF5FB",width="600",height="150")
+frameBg1.place(relx=0.05,rely=0.2)
+
+frameBg2 = Frame(frameCent, bg="#D5F5E3",width="600",height="150")
+frameBg2.place(relx=0.05,rely=0.6)
 
 #Labels
-txtAñadStk = Label(ventAñadir, text="Añadir stock",bg="#F3F3F3", font=("source",14))
+txtAñadStk = Label(ventAñadir, text="Añadir stock",bg="#EBF5FB", font=("source",14))
 txtAñadStk.place(relx=0.15,rely=0.13)
 
-txtMercad = Label(ventAñadir, text="Mercaderia",bg="white", font=("courier",11))
+txtMercad = Label(ventAñadir, text="Mercaderia",bg="#EBF5FB", font=("courier",11))
 txtMercad.place(relx=0.15,rely=0.25)
 
-txtCant = Label(ventAñadir, text="Cantidad", bg="white", font=("courier",11))
+txtCant = Label(ventAñadir, text="Cantidad", bg="#EBF5FB", font=("courier",11))
 txtCant.place(relx=0.49,rely=0.25)
 
-txtFecha = Label(ventAñadir, text="Fecha", bg="white", font=("courier",11))
+txtFecha = Label(ventAñadir, text="Fecha", bg="#EBF5FB", font=("courier",11))
 txtFecha.place(relx=0.15,rely=0.34)
 
-txtUsr = Label(ventAñadir, text="Usuario", bg="white", font=("courier",11))
+txtUsr = Label(ventAñadir, text="Usuario", bg="#EBF5FB", font=("courier",11))
 txtUsr.place(relx=0.49,rely=0.34)
 
-txtUsuario = Label(ventAñadir, text="Actual",bg="white", font=("courier",11))
+txtUsuario = Label(ventAñadir, text="Actual",bg="#EBF5FB", font=("courier",11))
 txtUsuario.place(relx=0.6,rely=0.34)
 
+txtStockRec = Label(ventAñadir, text="Stocks añadidos",bg="#D5F5E3", font=("Source",13))
+txtStockRec.place(relx=0.146,rely=0.52)
 #Botones
 
-btnCalc = Button(ventAñadir, text="Calculadora",bd=0,width="7")
+btnCalc = Button(ventAñadir, text="Calculadora",bg ="#D6EAF8",bd=0,width="9")
 btnCalc.place(relx=0.71,rely=0.24)
+
+
+
+btnAñadir = Button(ventAñadir, text="Añadir",bg="#D6EAF8",font=("Source",11),bd=0,width="9",state=DISABLED)
+btnAñadir.place(relx=0.786,rely=0.44)
 
 #Entrys
 entryCant = Entry(ventAñadir,width="10")
