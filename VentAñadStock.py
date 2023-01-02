@@ -41,7 +41,40 @@ btnVolver = Button(ventAñadir, text="Volver",fg="white",bg="#85C1E9", bd=0, wid
 btnVolver.grid(row=1,column=0,pady=250)
 #_
 
+def calcu():
+    ventcal = Toplevel()
+    ventcal.geometry("200x200")
+    
+    #Labels
+    txtIngrese = Label(ventcal,text="Ingrese cantidad de:")
+    txtIngrese.grid(row=0,column=0)
+    txtCarros = Label(ventcal,text="Carros:")
+    txtCarros.grid(row=1,column=0)
 
+    txtLatas = Label(ventcal,text="Latas:")
+    txtLatas.grid(row=2,column=0)
+
+    txtUnidad = Label(ventcal,text="Unidades:")
+    txtUnidad.grid(row=3,column=0)
+    
+    #Entrys
+    entryCarro = Entry(ventcal)
+    entryCarro.grid(row=1,column=1)
+
+    entryLata = Entry(ventcal)
+    entryLata.grid(row=2,column=1)
+
+    entryUnidad = Entry(ventcal)
+    entryUnidad.grid(row=3,column=1)
+    
+    #Botones
+    btnConfirm = Button(ventcal, text="Confirmar")
+    btnConfirm.grid(row=4,column=0)
+
+    btnCancel = Button(ventcal, text="Cancelar")
+    btnCancel.grid(row=4,column=1)
+
+    ventcal.mainloop()
 #   __
 
 #   Frame centro
@@ -77,12 +110,10 @@ txtStockRec = Label(ventAñadir, text="Stocks añadidos",bg="#D5F5E3", font=("So
 txtStockRec.place(relx=0.146,rely=0.52)
 #Botones
 
-btnCalc = Button(ventAñadir, text="Calculadora",bg ="#D6EAF8",bd=0,width="9")
+btnCalc = Button(ventAñadir,command=calcu, text="Calculadora",bg ="#D6EAF8",bd=0,width="9")
 btnCalc.place(relx=0.71,rely=0.24)
 
-
-
-btnAñadir = Button(ventAñadir, text="Añadir",bg="#D6EAF8",font=("Source",11),bd=0,width="9",state=DISABLED)
+btnAñadir = Button(ventAñadir, text="Añadir",bg="#D6EAF8",font=("Source",11),bd=0,width="9")
 btnAñadir.place(relx=0.786,rely=0.44)
 
 #Entrys
