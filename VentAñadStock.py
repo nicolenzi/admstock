@@ -43,11 +43,12 @@ btnVolver.grid(row=1,column=0,pady=250)
 
 def calcu():
     ventcal = Toplevel()
-    ventcal.geometry("200x200")
+    ventcal.geometry("250x200")
     
     #Labels
-    txtIngrese = Label(ventcal,text="Ingrese cantidad de:")
-    txtIngrese.grid(row=0,column=0)
+    txtIngrese = Label(ventcal,text="Ingrese cantidad")
+    txtIngrese.grid(row=0,column=0,columnspan=2,ipady=8)
+    
     txtCarros = Label(ventcal,text="Carros:")
     txtCarros.grid(row=1,column=0)
 
@@ -57,6 +58,12 @@ def calcu():
     txtUnidad = Label(ventcal,text="Unidades:")
     txtUnidad.grid(row=3,column=0)
     
+    txtResult = Label(ventcal, text="Resultado")
+    txtResult.grid(row=4,column=0,sticky=E,ipady=6)
+
+    txtResNum = Label(ventcal, text="0")
+    txtResNum.grid(row=4,column=1)
+
     #Entrys
     entryCarro = Entry(ventcal)
     entryCarro.grid(row=1,column=1)
@@ -69,10 +76,8 @@ def calcu():
     
     #Botones
     btnConfirm = Button(ventcal, text="Confirmar")
-    btnConfirm.grid(row=4,column=0)
+    btnConfirm.grid(row=5,column=1)
 
-    btnCancel = Button(ventcal, text="Cancelar")
-    btnCancel.grid(row=4,column=1)
 
     ventcal.mainloop()
 #   __
