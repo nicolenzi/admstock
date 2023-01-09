@@ -45,6 +45,15 @@ def calcu():
     ventcal = Toplevel()
     ventcal.geometry("250x200")
     
+    #Valores 
+    mCarro = 40
+    mLata = 49
+    mUnidad = 1
+
+    #Metodos
+    def calculo():
+        mCarro + mLata
+
     #Labels
     txtIngrese = Label(ventcal,text="Ingrese cantidad")
     txtIngrese.grid(row=0,column=0,columnspan=2,ipady=8)
