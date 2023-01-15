@@ -46,13 +46,35 @@ def calcu():
     ventcal.geometry("250x200")
     
     #Valores 
-    mCarro = 40
+    
+    #Medialunas50g
+    mCarroC = 30
+    mCarroG = 40
     mLata = 49
-    mUnidad = 1
+    mUnidad = 0
+
+    #Medialunas60g
+    mgCarroC = 30
+    mgCarroC = 40
+    mgLata = 42
+    mUnidad = 0
+
+    #Tortas pinchadas
+    tpCarroC = 30
+    tpCarroG = 40
+    tpLata = 36
+    tpUnidad = 0
+
+    #Tortas raspadas
+    trCarroC = 30
+    trCarroG = 40
+    trLata = 36
+    trUnidad = 0 
 
     #Metodos
     def calculo():
-        mCarro + mLata
+        asd = entryCarro.get() #resuelto prro
+        print(asd)
 
     #Labels
     txtIngrese = Label(ventcal,text="Ingrese cantidad")
@@ -84,7 +106,7 @@ def calcu():
     entryUnidad.grid(row=3,column=1)
     
     #Botones
-    btnConfirm = Button(ventcal, text="Confirmar")
+    btnConfirm = Button(ventcal, text="Confirmar",command=calculo)
     btnConfirm.grid(row=5,column=1)
 
 
