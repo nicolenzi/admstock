@@ -13,6 +13,7 @@ ventAñadir.title("Añadir Stock")
 ventAñadir.geometry("800x600")
 ventAñadir.configure(bg="#AED6F1")
 
+val_resulCalc = 0
 
 # SQL
 sqlconex = sql.connect("admsBD.db")
@@ -45,36 +46,64 @@ def calcu():
     ventcal = Toplevel()
     ventcal.geometry("250x200")
     
+    
     #Valores 
     
+
     #Medialunas50g
     mCarroC = 30
     mCarroG = 40
     mLata = 49
-    mUnidad = 0
+    
 
     #Medialunas60g
     mgCarroC = 30
-    mgCarroC = 40
+    mgCarroG = 40
     mgLata = 42
-    mUnidad = 0
+    
 
     #Tortas pinchadas
     tpCarroC = 30
     tpCarroG = 40
     tpLata = 36
-    tpUnidad = 0
+    
 
     #Tortas raspadas
     trCarroC = 30
     trCarroG = 40
     trLata = 36
-    trUnidad = 0 
+    
 
     #Metodos
     def calculo():
-        asd = entryCarro.get() #resuelto prro
-        print(asd)
+        EC = int(entryCarro.get()) 
+        EL = int(entryLata.get())
+        EU = int(entryUnidad.get())
+        
+        if combo_produc.get() == "":
+            print("No producto")
+        elif combo_produc.get() == "Medialuna":  
+            val_resulCalc = ((EC*mCarroG) * (EL*mLata) + EU)
+            txtTotal.configure(text="total: "+ str(val_resulCalc))
+            print(val_resulCalc)
+
+        elif combo_produc.get() == "Medialuna 60g":
+            val_resulCalc = ((EC * mgCarroG) * (EL*mgLata) + EU)
+            txtTotal.configure(text="Total: "+ str(val_resulCalc))
+            print(val_resulCalc)
+
+        elif combo_produc.get() == "Pinchadas":
+            val_resulCalc = ((EC * tpCarroC) * (EL * tpLata) + EU)
+            txtTotal.configure(text="Total: "+str(val_resulCalc))
+            print(val_resulCalc)
+        else:
+            print("ERROR!")
+
+        # val_resulCalc = (EC * Carro + EL * Lata + EU)
+        
+        # txtTotal.configure(text="total: " + str(val_resulCalc)) #necesario str, no aridmetica
+        # print(val_resulCalc)
+       
 
     #Labels
     txtIngrese = Label(ventcal,text="Ingrese cantidad")
@@ -89,14 +118,19 @@ def calcu():
     txtUnidad = Label(ventcal,text="Unidades:")
     txtUnidad.grid(row=3,column=0)
     
-    txtResult = Label(ventcal, text="Resultado")
-    txtResult.grid(row=4,column=0,sticky=E,ipady=6)
+    txtTipo = Label(ventcal, text="Tipo: ")
+    txtTipo.grid(row=4,column=0,sticky=E,ipady=6)
 
-    txtResNum = Label(ventcal, text="0")
-    txtResNum.grid(row=4,column=1)
+    txtTotal = Label(ventcal,text="total: ")
+    txtTotal.grid(row=6,column=2)
 
+
+
+    #Comboboxs
+    combo_produc = ttk.Combobox(ventcal,values=["Medialuna","Medialuna 60g","Pinchadas"],state="readonly")
+    combo_produc.grid(row=4,column=1)
     #Entrys
-    entryCarro = Entry(ventcal)
+    entryCarro = Entry(ventcal)         #si hay problemas con la suma string cambiar a int() O UNA ,
     entryCarro.grid(row=1,column=1)
 
     entryLata = Entry(ventcal)
@@ -104,10 +138,14 @@ def calcu():
 
     entryUnidad = Entry(ventcal)
     entryUnidad.grid(row=3,column=1)
-    
+    entryCarro.insert(0,0)
+    entryLata.insert(0,0)
+    entryUnidad.insert(0,0)
+
     #Botones
-    btnConfirm = Button(ventcal, text="Confirmar",command=calculo)
-    btnConfirm.grid(row=5,column=1)
+    btnCalcular = Button(ventcal,text="Calcular",command=calculo)
+    btnCalcular.grid(row=6,column=1)
+    
 
 
     ventcal.mainloop()
