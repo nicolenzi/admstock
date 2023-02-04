@@ -83,8 +83,8 @@ def calcu():
         if combo_produc.get() == "":
             print("No producto")
         elif combo_produc.get() == "Medialuna":  
-            val_resulCalc = ((EC*mCarroG) * (EL*mLata) + EU)
-            txtTotal.configure(text="total: "+ str(val_resulCalc))
+            val_resulCalc = ((EC*mCarroG) * (EL*mLata) + EU)  # (ingreso de valor * cantidad de LATAS de carro de facturas)*(ingreso de valor * cantidad de UNIDADES de una lata de facturas) + unidades 
+            txtTotal.configure(text="total: "+ str(val_resulCalc)) 
             print(val_resulCalc)
 
         elif combo_produc.get() == "Medialuna 60g":
@@ -99,10 +99,6 @@ def calcu():
         else:
             print("ERROR!")
 
-        # val_resulCalc = (EC * Carro + EL * Lata + EU)
-        
-        # txtTotal.configure(text="total: " + str(val_resulCalc)) #necesario str, no aridmetica
-        # print(val_resulCalc)
        
 
     #Labels
