@@ -16,7 +16,7 @@ ventAñadir.configure(bg="#AED6F1")
 val_resulCalc = 0
 
 # SQL
-sqlconex = sql.connect("admsBD.db")
+sqlconex = sql.connect("StockBD.db")
 curs = sqlconex.cursor()
 
 # curs.execute('''INSERT INTO Mercaderia ("Tortas raspadas")VALUES (0)''')
@@ -24,49 +24,25 @@ curs = sqlconex.cursor()
 
 
 #           METODOS
-
-#__
-
-#           FRAMES
-#   Frame Izquierdo
-frameIzq = Frame(ventAñadir, bg="#85C1E9",width="160",height="580")
-frameIzq.place(relx=0,rely=0)
-
-#Labels
-txtFrozen = Label(ventAñadir, text="Frozen",fg="white",bg="#85C1E9", font=("source",16))
-txtFrozen.grid(row=0,column=0,padx=10)
-#_
-
-#Botones
-btnVolver = Button(ventAñadir, text="Volver",fg="white",bg="#85C1E9", bd=0, width="8")
-btnVolver.grid(row=1,column=0,pady=250)
-#_
-
 def calcu():
     ventcal = Toplevel()
-    ventcal.geometry("250x200")
-    
+    ventcal.geometry("250x200")  
     
     #Valores 
-    
-
     #Medialunas50g
     mCarroC = 30
     mCarroG = 40
     mLata = 49
     
-
     #Medialunas60g
     mgCarroC = 30
     mgCarroG = 40
-    mgLata = 42
-    
+    mgLata = 42 
 
     #Tortas pinchadas
     tpCarroC = 30
     tpCarroG = 40
-    tpLata = 36
-    
+    tpLata = 36   
 
     #Tortas raspadas
     trCarroC = 30
@@ -145,6 +121,35 @@ def calcu():
 
 
     ventcal.mainloop()
+
+def Añadir():
+    CM = str(comboMercad.get())
+    EC = int(entryCant.get())
+    EF = str(entryFecha.get())
+    #falta usuario
+
+    
+
+    curs.execute('''INSERT INTO stock ("Mercaderia","Cantidad","Fecha") VALUES (?,?,?)''',(CM,EC,EF))
+    sqlconex.commit()
+#__
+
+#           FRAMES
+#   Frame Izquierdo
+frameIzq = Frame(ventAñadir, bg="#85C1E9",width="160",height="580")
+frameIzq.place(relx=0,rely=0)
+
+#Labels
+txtFrozen = Label(ventAñadir, text="Frozen",fg="white",bg="#85C1E9", font=("source",16))
+txtFrozen.grid(row=0,column=0,padx=10)
+#_
+
+#Botones
+btnVolver = Button(ventAñadir, text="Volver",fg="white",bg="#85C1E9", bd=0, width="8")
+btnVolver.grid(row=1,column=0,pady=250)
+#_
+
+
 #   __
 
 #   Frame centro
@@ -183,21 +188,20 @@ txtStockRec.place(relx=0.146,rely=0.52)
 btnCalc = Button(ventAñadir,command=calcu, text="Calculadora",bg ="#D6EAF8",bd=0,width="9")
 btnCalc.place(relx=0.71,rely=0.24)
 
-btnAñadir = Button(ventAñadir, text="Añadir",bg="#D6EAF8",font=("Source",11),bd=0,width="9")
+btnAñadir = Button(ventAñadir, text="Añadir",bg="#D6EAF8",font=("Source",11),bd=0,width="9",command=Añadir)
 btnAñadir.place(relx=0.786,rely=0.44)
 
 #Entrys
 entryCant = Entry(ventAñadir,width="10")
 entryCant.place(relx=0.6, rely=0.25)
 
+entryFecha = Entry(ventAñadir,width="10")
+entryFecha.place(relx=0.28,rely=0.34)
+
 #Comboboxs
 comboMercad = ttk.Combobox(ventAñadir,state="readonly",width="10",values=["Medialunas","pinchadas","raspadas"])
 comboMercad.place(relx=0.28,rely=0.25)
 
-
-comboFecha = ttk.Combobox(ventAñadir,state="readonly",width="10",values=
-["Actual(hoy)","Otra"])
-comboFecha.place(relx=0.28,rely=0.34)
 
 #_
 
@@ -220,3 +224,5 @@ txtUsr.place(relx=0.75,rely=0)
 #__
 
 ventAñadir.mainloop()
+
+sqlconex.close()
