@@ -22,7 +22,6 @@ curs = sqlconex.cursor()
 # curs.execute('''INSERT INTO Mercaderia ("Tortas raspadas")VALUES (0)''')
 # curs.execute('''INSERT INTO Mercaderia ("Medialunas")VALUES (0)''')
 
-
 #           METODOS
 def calcu():
     ventcal = Toplevel()
