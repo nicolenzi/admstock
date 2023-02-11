@@ -15,18 +15,44 @@ def Añadir():
                                                              #v
     curs.execute('''INSERT INTO Ejemplo ("Lugar") VALUES (?)''',entrVal)
     sqlconex.commit()
+
+def Buscar():
     
+    busqueda = entryBusqueda.get()
+
+    curs.execute("SELECT * FROM Ejemplo WHERE Lugar = ? ",busqueda)
+    sqlconex.commit()
+    datos = curs.fetchall()
+
+    print(datos)
+    txtEjemp.configure(text=datos)
+   # for dato in datos:
+   #     print(dato)
+   
+
+def Copiar():
+    lista.insert(1,)  #devolver un valor?? --- con lo que se añade en la base de datos copiarlo al listbox(si total es temporal)
+
 
 entryValor = Entry(ventana)
 entryValor.grid(row=0,column=0)
 
+entryBusqueda = Entry(ventana)
+entryBusqueda.grid(row=2,column=0)
 
+txtEjemp = Label(ventana,text="ejemplo")
+txtEjemp.grid(row=1,column=0)
 
+lista = Listbox(ventana)
+lista.grid(row=3,column=0)
 
 
 
 btnAñadir = Button(ventana, text="Añadir a BD", command=Añadir)
 btnAñadir.grid(row=0,column=1)
+
+btnbuscar = Button(ventana, text="Buscar",command=Buscar)
+btnbuscar.grid(row=2,column=1)
 
 ventana.mainloop()
 sqlconex.close()

@@ -23,6 +23,7 @@ curs = sqlconex.cursor()
 # curs.execute('''INSERT INTO Mercaderia ("Medialunas")VALUES (0)''')
 
 #           METODOS
+
 def calcu():
     ventcal = Toplevel()
     ventcal.geometry("250x200")  
@@ -74,7 +75,7 @@ def calcu():
         else:
             print("ERROR!")
 
-       
+
 
     #Labels
     txtIngrese = Label(ventcal,text="Ingrese cantidad")
@@ -124,13 +125,32 @@ def calcu():
 def Añadir():
     CM = str(comboMercad.get())
     EC = int(entryCant.get())
-    EF = str(entryFecha.get())
-    #falta usuario
+    EF = str(date.today())
+    EU = str(entryUsr.get())
+
 
     
 
-    curs.execute('''INSERT INTO stock ("Mercaderia","Cantidad","Fecha") VALUES (?,?,?)''',(CM,EC,EF))
-    sqlconex.commit()
+    #curs.execute('''INSERT INTO stock ("Mercaderia","Cantidad","Fecha") VALUES (?,?,?)''',(CM,EC,EF))
+    #sqlconex.commit()
+    
+    listStockM1.insert(0,str(CM))
+    listStockC2.insert(0,EC)
+    listStockF3.insert(0,EF)
+    listStockU4.insert(0,EU)
+
+def A():
+    
+   confM = str(listStockM1.get(0))
+   confC = listStockC2.get(0)
+   confF = listStockF3.get(0)
+   confU = listStockU4.get(0)
+
+   curs.execute('INSERT INTO stock ("Mercaderia","Cantidad","Fecha","Usuario") VALUES (?,?,?,?)',(confM,confC,confF,confU))
+   sqlconex.commit()
+
+   print(confM,confC,confC,confU)
+    
 #__
 
 #           FRAMES
@@ -158,8 +178,8 @@ frameCent.place(relx=0.099,rely=0)
 frameBg1 = Frame(frameCent, bg="#EBF5FB",width="600",height="150")
 frameBg1.place(relx=0.05,rely=0.2)
 
-frameBg2 = Frame(frameCent, bg="#D5F5E3",width="600",height="150")
-frameBg2.place(relx=0.05,rely=0.6)
+frameBg2 = Frame(frameCent, bg="#D5F5E3",width="600",height="60")
+frameBg2.place(relx=0.05,rely=0.57)
 
 #Labels
 txtAñadStk = Label(ventAñadir, text="Añadir stock",bg="#EBF5FB", font=("source",14))
@@ -174,14 +194,35 @@ txtCant.place(relx=0.49,rely=0.25)
 txtFecha = Label(ventAñadir, text="Fecha", bg="#EBF5FB", font=("courier",11))
 txtFecha.place(relx=0.15,rely=0.34)
 
+txtFechaA = Label(ventAñadir, text=date.today(),bg="#EBF5FB",font=("courier",9))
+txtFechaA.place(relx=0.28,rely=0.34)
+
 txtUsr = Label(ventAñadir, text="Usuario", bg="#EBF5FB", font=("courier",11))
 txtUsr.place(relx=0.49,rely=0.34)
 
-txtUsuario = Label(ventAñadir, text="Actual",bg="#EBF5FB", font=("courier",11))
-txtUsuario.place(relx=0.6,rely=0.34)
+txtUsuario = Label(ventAñadir, text="(USR)",bg="#EBF5FB", font=("courier",11))
+txtUsuario.place(relx=0.7,rely=0.34)
 
-txtStockRec = Label(ventAñadir, text="Stocks añadidos",bg="#D5F5E3", font=("Source",13))
-txtStockRec.place(relx=0.146,rely=0.52)
+#
+
+txtStockAñad = Label(ventAñadir, text="Stock añadido",bg="#D5F5E3", font=("Source",14))
+txtStockAñad.place(relx=0.146,rely=0.49)
+
+
+txtListMerc = Label(ventAñadir,text="Mercaderia",bg="#D5F5E3",font=("courier",11))
+txtListMerc.place(relx=0.2,rely=0.56)
+
+txtListCant = Label(ventAñadir,text="Cantidad",bg="#D5F5E3",font=("courier",11))
+txtListCant.place(relx=0.37,rely=0.56)
+
+txtListFecha = Label(ventAñadir,text="Fecha",bg="#D5F5E3",font=("courier",11))
+txtListFecha.place(relx=0.5,rely=0.56)
+
+txtListUsr = Label(ventAñadir,text="Usuario",bg="#D5F5E3",font=("courier",11))
+txtListUsr.place(relx=0.64,rely=0.56)
+
+
+
 #Botones
 
 btnCalc = Button(ventAñadir,command=calcu, text="Calculadora",bg ="#D6EAF8",bd=0,width="9")
@@ -190,18 +231,33 @@ btnCalc.place(relx=0.71,rely=0.24)
 btnAñadir = Button(ventAñadir, text="Añadir",bg="#D6EAF8",font=("Source",11),bd=0,width="9",command=Añadir)
 btnAñadir.place(relx=0.786,rely=0.44)
 
+#
+
+btnConfirm = Button(ventAñadir,command=A, text="Confirmar",bg="#ABEBC6",bd=0,width="9",font=("Source",11))
+btnConfirm.place(relx=0.786,rely=0.65)
+
 #Entrys
 entryCant = Entry(ventAñadir,width="10")
 entryCant.place(relx=0.6, rely=0.25)
 
-entryFecha = Entry(ventAñadir,width="10")
-entryFecha.place(relx=0.28,rely=0.34)
-
+entryUsr = Entry(ventAñadir,width="12")
+entryUsr.place(relx=0.6,rely=0.34)
 #Comboboxs
 comboMercad = ttk.Combobox(ventAñadir,state="readonly",width="10",values=["Medialunas","pinchadas","raspadas"])
 comboMercad.place(relx=0.28,rely=0.25)
 
+#Listboxs
+listStockM1 = Listbox(ventAñadir,bg="#D5F5E3",bd=1,width="25",height="1")
+listStockM1.place(relx=0.17,rely=0.6)
 
+listStockC2 = Listbox(ventAñadir,bg="#D5F5E3",bd=1, width="13",height="1")
+listStockC2.place(relx=0.37,rely=0.6)
+
+listStockF3 = Listbox(ventAñadir,bg="#D5F5E3",bd=1, width="15",height="1")
+listStockF3.place(relx=0.48,rely=0.6)
+
+listStockU4 = Listbox(ventAñadir,bg="#D5F5E3",bd=1,width="20",height="1")
+listStockU4.place(relx=0.606,rely=0.6)
 #_
 
 
