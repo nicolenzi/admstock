@@ -24,7 +24,7 @@ textoFrozen = Label(ventanaI,
 textoFrozen.place(relx=0.10,rely=0.35)
 
 textoPanif = Label(ventanaI,
-                text="Panificados conjelados.",
+                text="Panificados congelados.",
                 fg="white",
                 font=("Padauk",18),
                 bg="#85C1E9")

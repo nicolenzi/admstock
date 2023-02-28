@@ -1,6 +1,6 @@
 
 
-
+"""
 import tkinter as tk
 from tkinter import *
 import sqlite3 as sql
@@ -57,6 +57,7 @@ btnbuscar.grid(row=2,column=1)
 ventana.mainloop()
 sqlconex.close()
 """
+"""
 def valores():
     valor1 = 1
     valor2 = 2
@@ -83,6 +84,8 @@ print(total)
 """
 
 """
+
+
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
@@ -108,3 +111,62 @@ lap.grid(row=0,column=3)
 
 vent.mainloop()
 """
+
+'''
+import tkinter as tk
+from tkinter import *
+import sqlite3 as sql
+
+ventana = tk.Tk()
+ventana.geometry("400x400")
+sqlconex = sql.connect("Basedatos_prueba.db")
+curs = sqlconex.cursor()
+
+listboxx = Listbox(ventana)
+listboxx.pack()
+curs.execute("SELECT * FROM Ejemplo")
+listado = curs.fetchall()
+
+inicio = 0
+
+for lista in listado:
+    listboxx.insert(inicio,listado[5])
+    inicio = inicio + 1
+
+ventana.mainloop()
+sqlconex.close()
+'''
+'''
+import tkinter as tk
+from tkinter import *
+from tkinter import IntVar
+
+ventana = tk.Tk()
+ventana.geometry("400x400")
+
+CVar = IntVar()
+CVar2 = IntVar()
+
+def ver():
+    lbel.configure(text=CVar.get())
+    print(CVar.get())
+
+        
+
+
+lbel = Label(ventana,text="")
+lbel.pack()
+
+check = Checkbutton(ventana,text="valor1",variable=CVar,onvalue=2,offvalue=0)
+check.pack()
+
+check2 = Checkbutton(ventana,text="",variable=CVar2)
+
+
+Btn = Button(ventana,text="probar",command=ver)
+Btn.pack()
+
+
+
+ventana.mainloop()
+'''
