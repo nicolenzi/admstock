@@ -239,21 +239,30 @@ def Eliminar():
 
 
 #Frames
-frameOpc = Frame(ventanaList, bg="#85C1E9", width="100", height="560")
+frameOpc = Frame(ventanaList, bg="#EBF5FB", width="115", height="570")
 frameOpc.grid(row=0,column=0)
 
-frameCent = Frame(ventanaList, bg="white", width="700", height="560")
+frameCent = Frame(ventanaList, bg="white", width="700", height="570")
 frameCent.grid(row=0,column=1)
 
+frameAbajo = Frame(ventanaList, bg="black", width="815", height="30")
+frameAbajo.grid(row=2,column=0,columnspan=2)
+
+frameGridList = Frame(frameCent, bg="orange", width="550", height="380")
+frameGridList.place(relx=0.1,rely=0.27)
+
 #btn
-btnBuscar = Button(frameCent, bg="white", text="Buscar",command=Buscador,bg="#EBF5FB")
+btnBuscar = Button(frameCent, bg="#EBF5FB", text="Buscar",command=Buscador,bd=0,font=("courier",10))
 btnBuscar.place(relx=0.7,rely=0.4)
 
-btnMod = Button(frameCent,bg="white", text="Modificar",command=Modificador,bg="#EBF5FB")
+btnMod = Button(frameCent,bg="#EBF5FB", text="Modificar",command=Modificador,bd=0,font=("courier",10))
 btnMod.place(relx=0.7,rely=0.5)
 
-btnElim = Button(frameCent,bg="white",text="Eliminar",command=Eliminar,bg="#EBF5FB")
+btnElim = Button(frameCent,bg="#EBF5FB",text="Eliminar",command=Eliminar,bd=0,font=("courier",10))
 btnElim.place(relx=0.7,rely=0.6)
+
+btnVolver = Button(frameOpc,text="Volver",font=("courier",10),bg="red",fg="white",bd=0,width="14")
+btnVolver.place(relx=0,rely=0.96)
 
 
 
@@ -318,37 +327,39 @@ def Actualizar():
 
     print(valorzise)
 
-btnAct = Button(ventanaList,bg="White",text="Actualizar",command=Actualizar)
-btnAct.place(relx=0.739,rely=0.65)
-
-
-
-
-frameUsuario = Frame(ventanaList, bg="black", width="800", height="40")
-frameUsuario.grid(row=2,column=0,columnspan=2)
-
-frameGridList = Frame(frameCent, bg="orange", width="550", height="380")
-frameGridList.place(relx=0.1,rely=0.27) 
+#btnAct = Button(ventanaList,bg="White",text="Actualizar",command=Actualizar)
+#btnAct.place(relx=0.739,rely=0.65)
+ 
 
 #Labels
 
-txtListP = Label(frameCent, text="Listado de pedidos", font=("Arial",14),bg="#EBF5FB")
+imgFrzn = PhotoImage(file="imagenes/titulo.png")
+imgLogo = Label(frameOpc, image=imgFrzn,width="110",height="45")
+imgLogo.place(relx=0,rely=0)
+
+txtListP = Label(frameCent, text="Listado de pedidos", font=("courier",14),bg="#EBF5FB")
 txtListP.place(relx=0.1,rely=0.2)
 
-txtNum = Label(frameGridList, text="ID", font=("Calabri",12),bg="#EBF5FB")
+txtNum = Label(frameGridList, text="ID", font=("courier",10),bg="#EBF5FB")
 txtNum.grid(row=0,column=0,ipadx=10)
 
-txtMercad = Label(frameGridList, text="Producto",font=("Calabri",12),bg="#EBF5FB")
+txtMercad = Label(frameGridList, text="Producto",font=("courier",10),bg="#EBF5FB")
 txtMercad.grid(row=0,column=1,ipadx=10)
 
-txtCant = Label(frameGridList, text="Cantidad",font=("Calabri",12),bg="#EBF5FB")
+txtCant = Label(frameGridList, text="Cantidad",font=("courier",10),bg="#EBF5FB")
 txtCant.grid(row=0,column=2, ipadx=10)
 
-txtFecha = Label(frameGridList, text="Fecha",font=("Calabri",12),bg="#EBF5FB")
+txtFecha = Label(frameGridList, text="Fecha",font=("courier",10),bg="#EBF5FB")
 txtFecha.grid(row=0,column=3, ipadx=12)
 
-txtUsr = Label(frameGridList, text="Usuario",font=("Calabri",12),bg="#EBF5FB")
+txtUsr = Label(frameGridList, text="Usuario",font=("courier",10),bg="#EBF5FB")
 txtUsr.grid(row=0,column=4, ipadx=16)
+
+#_FA
+txtUsrAbj = Label(frameAbajo,text="Usuario: ",font=("courier",10),bg="black",fg="white")
+txtUsrAbj.place(relx=0.75,rely=0.1)
+
+
 
 ventanaList.mainloop()
 sqlconex.close()
