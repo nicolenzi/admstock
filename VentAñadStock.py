@@ -155,25 +155,26 @@ def A():
 
 #           FRAMES
 #   Frame Izquierdo
-frameIzq = Frame(ventAñadir, bg="#85C1E9",width="160",height="580")
+frameIzq = Frame(ventAñadir, bg="#EBF5FB",width="125",height="580")
 frameIzq.place(relx=0,rely=0)
 
 #Labels
-txtFrozen = Label(ventAñadir, text="Frozen",fg="white",bg="#85C1E9", font=("source",16))
+imgFrzn = PhotoImage(file="imagenes/titulo.png")
+txtFrozen = Label(ventAñadir,image=imgFrzn,width="110",height="50")
 txtFrozen.grid(row=0,column=0,padx=10)
 #_
 
 #Botones
-btnVolver = Button(ventAñadir, text="Volver",fg="white",bg="#85C1E9", bd=0, width="8")
-btnVolver.grid(row=1,column=0,pady=250)
+btnVolver = Button(ventAñadir, text="Volver",fg="white",bg="red", bd=0, width="17",)
+btnVolver.place(relx=0,rely=0.93)
 #_
 
 
 #   __
 
 #   Frame centro
-frameCent = Frame(ventAñadir, bg="white", width="740",height="580")
-frameCent.place(relx=0.099,rely=0)
+frameCent = Frame(ventAñadir, bg="white", width="690",height="580")
+frameCent.place(relx=0.155,rely=0)
 
 frameBg1 = Frame(frameCent, bg="#EBF5FB",width="600",height="150")
 frameBg1.place(relx=0.05,rely=0.2)
@@ -183,92 +184,93 @@ frameBg2.place(relx=0.05,rely=0.57)
 
 #Labels
 txtAñadStk = Label(ventAñadir, text="Añadir stock",bg="#EBF5FB", font=("source",14))
-txtAñadStk.place(relx=0.15,rely=0.13)
+txtAñadStk.place(relx=0.20,rely=0.13)
 
 txtMercad = Label(ventAñadir, text="Mercaderia",bg="#EBF5FB", font=("courier",11))
-txtMercad.place(relx=0.15,rely=0.25)
+txtMercad.place(relx=0.25,rely=0.25)
 
 txtCant = Label(ventAñadir, text="Cantidad", bg="#EBF5FB", font=("courier",11))
-txtCant.place(relx=0.49,rely=0.25)
+txtCant.place(relx=0.54,rely=0.25)
 
 txtFecha = Label(ventAñadir, text="Fecha", bg="#EBF5FB", font=("courier",11))
-txtFecha.place(relx=0.15,rely=0.34)
+txtFecha.place(relx=0.25,rely=0.34)
 
 txtFechaA = Label(ventAñadir, text=date.today(),bg="#EBF5FB",font=("courier",9))
-txtFechaA.place(relx=0.28,rely=0.34)
+txtFechaA.place(relx=0.33,rely=0.34)
 
 txtUsr = Label(ventAñadir, text="Usuario", bg="#EBF5FB", font=("courier",11))
-txtUsr.place(relx=0.49,rely=0.34)
+txtUsr.place(relx=0.54,rely=0.34)
 
 txtUsuario = Label(ventAñadir, text="(USR)",bg="#EBF5FB", font=("courier",11))
-txtUsuario.place(relx=0.7,rely=0.34)
+txtUsuario.place(relx=0.76,rely=0.34)
 
 #
 
 txtStockAñad = Label(ventAñadir, text="Stock añadido",bg="#D5F5E3", font=("Source",14))
-txtStockAñad.place(relx=0.146,rely=0.49)
+txtStockAñad.place(relx=0.20,rely=0.49)
 
 
 txtListMerc = Label(ventAñadir,text="Mercaderia",bg="#D5F5E3",font=("courier",11))
-txtListMerc.place(relx=0.2,rely=0.56)
+txtListMerc.place(relx=0.3,rely=0.56)
 
 txtListCant = Label(ventAñadir,text="Cantidad",bg="#D5F5E3",font=("courier",11))
-txtListCant.place(relx=0.37,rely=0.56)
+txtListCant.place(relx=0.47,rely=0.56)
 
 txtListFecha = Label(ventAñadir,text="Fecha",bg="#D5F5E3",font=("courier",11))
-txtListFecha.place(relx=0.5,rely=0.56)
+txtListFecha.place(relx=0.6,rely=0.56)
 
 txtListUsr = Label(ventAñadir,text="Usuario",bg="#D5F5E3",font=("courier",11))
-txtListUsr.place(relx=0.64,rely=0.56)
+txtListUsr.place(relx=0.74,rely=0.56)
 
 
 
 #Botones
 
 btnCalc = Button(ventAñadir,command=calcu, text="Calculadora",bg ="#D6EAF8",bd=0,width="9")
-btnCalc.place(relx=0.71,rely=0.24)
+btnCalc.place(relx=0.75,rely=0.24)
 
 btnAñadir = Button(ventAñadir, text="Añadir",bg="#D6EAF8",font=("Source",11),bd=0,width="9",command=Añadir)
-btnAñadir.place(relx=0.786,rely=0.44)
+btnAñadir.place(relx=0.84,rely=0.44)
 
 #
 
 btnConfirm = Button(ventAñadir,command=A, text="Confirmar",bg="#ABEBC6",bd=0,width="9",font=("Source",11))
-btnConfirm.place(relx=0.786,rely=0.65)
+btnConfirm.place(relx=0.84,rely=0.65)
 
 #Entrys
 entryCant = Entry(ventAñadir,width="10")
-entryCant.place(relx=0.6, rely=0.25)
+entryCant.place(relx=0.65, rely=0.25)
 
 entryUsr = Entry(ventAñadir,width="12")
-entryUsr.place(relx=0.6,rely=0.34)
+entryUsr.place(relx=0.65,rely=0.34)
 #Comboboxs
 comboMercad = ttk.Combobox(ventAñadir,state="readonly",width="10",values=["Medialunas","pinchadas","raspadas"])
-comboMercad.place(relx=0.28,rely=0.25)
+comboMercad.place(relx=0.38,rely=0.25)
 
 #Listboxs
 listStockM1 = Listbox(ventAñadir,bg="#D5F5E3",bd=1,width="25",height="1")
-listStockM1.place(relx=0.17,rely=0.6)
+listStockM1.place(relx=0.27,rely=0.6)
 
 listStockC2 = Listbox(ventAñadir,bg="#D5F5E3",bd=1, width="13",height="1")
-listStockC2.place(relx=0.37,rely=0.6)
+listStockC2.place(relx=0.47,rely=0.6)
 
 listStockF3 = Listbox(ventAñadir,bg="#D5F5E3",bd=1, width="15",height="1")
-listStockF3.place(relx=0.48,rely=0.6)
+listStockF3.place(relx=0.58,rely=0.6)
 
 listStockU4 = Listbox(ventAñadir,bg="#D5F5E3",bd=1,width="20",height="1")
-listStockU4.place(relx=0.606,rely=0.6)
+listStockU4.place(relx=0.706,rely=0.6)
 #_
 
 
 #   __
 
 #   Frame Inferior
-frameInf = Frame(ventAñadir,bg="black",width="800",height="20")
+frameInf = Frame(ventAñadir,bg="black",width="800",height="30")
 frameInf.place(relx=0,rely=0.966)
 
 #Labels
-txtUsr = Label(frameInf,text="Usuario:",fg="white",bg="black", font=("source",10))
+txtUsr = Label(frameInf,font=("courier",9),
+         text="Usuario: ",fg="white",bg="black")
 txtUsr.place(relx=0.75,rely=0)
 
 

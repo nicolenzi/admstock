@@ -1,12 +1,25 @@
 import tkinter as tk
+from tkinter import ttk
 from tkinter import *
 from tkinter import messagebox
+import sqlite3 as sql
 
 
 ventanaP = tk.Tk()
 ventanaP.title("Ventana principal")
 ventanaP.geometry("800x600")
 ventanaP.configure(bg = "#AED6F1")
+
+def abrirAñdStk():
+    print("Añadir ventana")
+def abrirListStk():
+    print("Listado ventana")
+#CONEXION A SQL
+sqlconex = sql.connect("Usuarios")
+curs = sqlconex.cursor()
+
+UsrAct = "Predeterminado"
+
 
 #Frames
 frameUrsInfo = Frame(ventanaP,
@@ -16,58 +29,71 @@ frameUrsInfo = Frame(ventanaP,
 frameUrsInfo.pack(side=BOTTOM)
 
 frameOpc = Frame(ventanaP,
-           width="90",
+           width="110",
            height="570",
-           bg="#85C1E9")
+           bg="#EBF5FB")
 frameOpc.pack(side=LEFT)
 
 frameCentro = Frame(ventanaP,
               width="750",
               height="570",
-              bg="snow")
+              bg="white")
 frameCentro.pack(side=LEFT)
 
-#Labels
-txtFrozen = Label(frameOpc,
-            text="FROZEN",
-            bg ="#85C1E9",
-            width="10",
-            height="2",
-            font=("arial",12))
-txtFrozen.place(relx=0,rely=0)
+#txt
+imgFrzn = PhotoImage(file="imagenes/titulo.png")
+imgFrozen = Label(frameOpc,image=imgFrzn,width="110",height="50")
+imgFrozen.place(relx=0,rely=0)
 
-txtAñadirS = Label(frameCentro,
+txtAnadirS = Label(frameCentro,
              text="Añadir stock",
-             bg="white")
-txtAñadirS.place(relx=0.22,rely=0.25)
+             bg="white",font=("courier",10))
+txtAnadirS.place(relx=0.22,rely=0.25)
 
 txtListado = Label(frameCentro,
              text="Listado de stock",
-             bg="white")
-txtListado.place(relx=0.5,rely=0.25)
+             bg="white",font=("courier",10))
+txtListado.place(relx=0.57,rely=0.25)
 
-txtUsr = Label(frameUrsInfo,
-         text="Usuario: ")
-txtUsr.place(relx=0.7,rely=0)
+txtUsr = Label(frameUrsInfo,font=("courier",9),
+         text="Usuario: "+UsrAct,fg="white",bg="black")
+txtUsr.place(relx=0.75,rely=0.1)
 
 #Botones
-btnconfig = Button(frameOpc,
-            text="Ajustes",
-            width="8",
-            bg="#85C1E9")
-btnconfig.place(relx=0,rely=0.4)
 
-btnañadir = Button(frameCentro,
+btnSalir = Button(frameOpc,
+            text="Salir",
+            font=("courier",10),
+            fg="white",
+            bd=0,
+            width="13",
+            height="1",
+            bg="red")
+btnSalir.place(relx=0,rely=0.96)
+
+#imagenes
+imgAS = PhotoImage(file="imagenes/añadirS.png")
+#lbimg = Label(frameCentro, image = imgAS)
+
+imgLS = PhotoImage(file="imagenes/listadoS.png")
+#lbimg2 = Label(frameCentro, image= imgLS)
+
+btañadir = Button(frameCentro,image=imgAS,
             text="+",
-            width="12",
-            height="10")
-btnañadir.place(relx=0.2, rely=0.3)
+            width="95",
+            height="125",
+            bd=0,
+            bg="white",
+            command=abrirAñdStk)
+btañadir.place(relx=0.23, rely=0.35)
 
-btnListado = Button(frameCentro,
-             text="____",
-             width="12",
-             height="10")
-btnListado.place(relx=0.5, rely=0.3)
+btnListado = Button(frameCentro,image=imgLS,
+             width="113",
+             bd=0,
+             height="143",
+             command=abrirListStk)
+btnListado.place(relx=0.6, rely=0.35)
 
 
 ventanaP.mainloop()
+sqlconex.close()

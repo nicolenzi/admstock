@@ -170,3 +170,11 @@ Btn.pack()
 
 ventana.mainloop()
 '''
+
+uno = 1
+dos = 2
+
+if uno == 1 and dos == 2:
+    print("c")
+else:
+    print("n")

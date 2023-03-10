@@ -246,13 +246,13 @@ frameCent = Frame(ventanaList, bg="white", width="700", height="560")
 frameCent.grid(row=0,column=1)
 
 #btn
-btnBuscar = Button(frameCent, bg="white", text="Buscar",command=Buscador)
+btnBuscar = Button(frameCent, bg="white", text="Buscar",command=Buscador,bg="#EBF5FB")
 btnBuscar.place(relx=0.7,rely=0.4)
 
-btnMod = Button(frameCent,bg="white", text="Modificar",command=Modificador)
+btnMod = Button(frameCent,bg="white", text="Modificar",command=Modificador,bg="#EBF5FB")
 btnMod.place(relx=0.7,rely=0.5)
 
-btnElim = Button(frameCent,bg="white",text="Eliminar",command=Eliminar)
+btnElim = Button(frameCent,bg="white",text="Eliminar",command=Eliminar,bg="#EBF5FB")
 btnElim.place(relx=0.7,rely=0.6)
 
 
@@ -332,22 +332,22 @@ frameGridList.place(relx=0.1,rely=0.27)
 
 #Labels
 
-txtListP = Label(frameCent, text="Listado de pedidos", font=("Arial",14))
+txtListP = Label(frameCent, text="Listado de pedidos", font=("Arial",14),bg="#EBF5FB")
 txtListP.place(relx=0.1,rely=0.2)
 
-txtNum = Label(frameGridList, text="ID", font=("Calabri",12))
+txtNum = Label(frameGridList, text="ID", font=("Calabri",12),bg="#EBF5FB")
 txtNum.grid(row=0,column=0,ipadx=10)
 
-txtMercad = Label(frameGridList, text="Producto",font=("Calabri",12))
+txtMercad = Label(frameGridList, text="Producto",font=("Calabri",12),bg="#EBF5FB")
 txtMercad.grid(row=0,column=1,ipadx=10)
 
-txtCant = Label(frameGridList, text="Cantidad",font=("Calabri",12))
+txtCant = Label(frameGridList, text="Cantidad",font=("Calabri",12),bg="#EBF5FB")
 txtCant.grid(row=0,column=2, ipadx=10)
 
-txtFecha = Label(frameGridList, text="Fecha",font=("Calabri",12))
+txtFecha = Label(frameGridList, text="Fecha",font=("Calabri",12),bg="#EBF5FB")
 txtFecha.grid(row=0,column=3, ipadx=12)
 
-txtUsr = Label(frameGridList, text="Usuario",font=("Calabri",12))
+txtUsr = Label(frameGridList, text="Usuario",font=("Calabri",12),bg="#EBF5FB")
 txtUsr.grid(row=0,column=4, ipadx=16)
 
 ventanaList.mainloop()
