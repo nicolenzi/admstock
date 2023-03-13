@@ -19,6 +19,7 @@ def Buscador():
     ventBuscar = Toplevel()
     ventBuscar.geometry("380x200")
     ventBuscar.title("Buscador")
+    ventBuscar.configure(bg="white")
     
     def buscador_datos():
         valcombo = comboBus.get()
@@ -74,17 +75,17 @@ def Buscador():
     comboBus.grid(row=1,column=0)
 
     #Btn
-    btnBuscar_Buscador = Button(ventBuscar,text="Buscar",command=buscador_datos)
+    btnBuscar_Buscador = Button(ventBuscar,text="Buscar",command=buscador_datos,bd=0)
     btnBuscar_Buscador.grid(row=4,column=0)
     
     #TXT
-    txtBuscar = Label(ventBuscar,text="Tipo de dato:")
+    txtBuscar = Label(ventBuscar,text="Tipo de dato:",bg="#EBF5FB")
     txtBuscar.grid(row=0,column=0)
 
-    txtOrden = Label(ventBuscar,text="ID / MERCADERIA / CANTIDAD / FECHA / USUARIO")
+    txtOrden = Label(ventBuscar,text="ID / MERCADERIA / CANTIDAD / FECHA / USUARIO",bg="#EBF5FB")
     txtOrden.grid(row=0,column=2)
 
-    txtBusqueda = Label(ventBuscar,text="Dato a buscar:")
+    txtBusqueda = Label(ventBuscar,text="Dato a buscar:",bg="#EBF5FB")
     txtBusqueda.grid(row=2,column=0)
 
     #Entrys
@@ -148,16 +149,16 @@ def Modificador():
 
 
     #TXT
-    txtID = Label(ventModificar,text="ID ")
-    txtID.grid(row=0,column=0)
+    txtID = Label(ventModificar,text="ID ",bg="#EBF5FB")
+    txtID.grid(row=0,column=0,padx=0,sticky=E)
 
-    txtListado = Label(ventModificar,text="Seleccione una ID para modificar")
-    txtListado.grid(row=1,column=0,columnspan=4,padx=3,pady=6)
+    txtListado = Label(ventModificar,text="Seleccione una ID para modificar",bg="#EBF5FB")
+    txtListado.grid(row=1,column=0,columnspan=4,padx=3,pady=15)
 
-    txtCambiar = Label(ventModificar,text="Cambiar ")
+    txtCambiar = Label(ventModificar,text="Cambiar ",bg="#EBF5FB")
     txtCambiar.grid(row=2,column=0)
 
-    txtPor = Label(ventModificar,text="por ")
+    txtPor = Label(ventModificar,text="por ",bg="#EBF5FB")
     txtPor.grid(row=2,column=2)
 
     #Entrys
@@ -167,19 +168,19 @@ def Modificador():
     entryMod.grid(row=2,column=3)
 
     entryId = Entry(ventModificar,width="4")
-    entryId.grid(row=0,column=1)
+    entryId.grid(row=0,column=1,sticky=W)
     
     #Btn
     
-    btnConfID = Button(ventModificar,text="Buscar",command=verID)
+    btnConfID = Button(ventModificar,text="Buscar",command=verID,bd=0)
     btnConfID.grid(row=0,column=2) 
     
-    btnConfirm = Button(ventModificar,text="Confirmar",command=modStock)
+    btnConfirm = Button(ventModificar,text="Confirmar",command=modStock,bd=0,bg="#ABEBC6")
     btnConfirm.grid(row=2,column=4)
 
 
     #Combobox
-    comboCambio = ttk.Combobox(ventModificar,values=["Mercaderia","Cantidad","Fecha","Usuario"],width="10")
+    comboCambio = ttk.Combobox(ventModificar,values=["Mercaderia","Cantidad","Fecha","Usuario"],width="8")
     comboCambio.grid(row=2,column=1)
     
 
@@ -191,8 +192,9 @@ def Modificador():
 
 def Eliminar():
     ventElimin = Toplevel()
-    ventElimin.geometry("300x200")
+    ventElimin.geometry("300x80")
     ventElimin.title("Eliminar stock")
+    ventElimin.configure(bg="white")
     
     def ElimBD():
 
@@ -213,19 +215,19 @@ def Eliminar():
         print(datosElim)
     #txt
     txtID = Label(ventElimin,text="ID: ")
-    txtID.grid(row=0,column=0)
+    txtID.grid(row=0,column=0,sticky=E)
 
     #Entry
     entryID = Entry(ventElimin,width="5")
-    entryID.grid(row=0,column=1)
+    entryID.grid(row=0,column=1,sticky=W)
 
     #List
     listID = Listbox(ventElimin,width="30",height="1",bd=0)
-    listID.grid(row=1,column=0,columnspan=2)
+    listID.grid(row=1,column=0,columnspan=3,padx=5)
     
     #Btn
-    btnElimBD = Button(ventElimin,text="Eliminar stock",command=ElimBD)
-    btnElimBD.grid(row=1,column=3)
+    btnElimBD = Button(ventElimin,text="Eliminar stock",command=ElimBD,bg="#EC7063",fg="white")
+    btnElimBD.grid(row=1,column=3,pady=15)
     
     btnBuscID = Button(ventElimin,text="Buscar",command=InsID)
     btnBuscID.grid(row=0,column=2) 
@@ -252,13 +254,13 @@ frameGridList = Frame(frameCent, bg="orange", width="550", height="380")
 frameGridList.place(relx=0.1,rely=0.27)
 
 #btn
-btnBuscar = Button(frameCent, bg="#EBF5FB", text="Buscar",command=Buscador,bd=0,font=("courier",10))
+btnBuscar = Button(frameCent, bg="#58D68D",fg="white",text="Buscar",command=Buscador,bd=0,font=("courier",10))
 btnBuscar.place(relx=0.7,rely=0.4)
 
-btnMod = Button(frameCent,bg="#EBF5FB", text="Modificar",command=Modificador,bd=0,font=("courier",10))
+btnMod = Button(frameCent,bg="#F7DC6F",fg="white", text="Modificar",command=Modificador,bd=0,font=("courier",10))
 btnMod.place(relx=0.7,rely=0.5)
 
-btnElim = Button(frameCent,bg="#EBF5FB",text="Eliminar",command=Eliminar,bd=0,font=("courier",10))
+btnElim = Button(frameCent,bg="#EC7063",fg="white",text="Eliminar",command=Eliminar,bd=0,font=("courier",10))
 btnElim.place(relx=0.7,rely=0.6)
 
 btnVolver = Button(frameOpc,text="Volver",font=("courier",10),bg="red",fg="white",bd=0,width="14")
